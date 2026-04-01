@@ -145,16 +145,16 @@ encoder = Mamba2Encoder(
     d_input=4, d_model=64, d_state=32, n_layers=2, n_heads=2, dropout=0.1
 ).to(DEVICE)
 sensor_data = torch.randn(2, SEQ_LEN, 4, device=DEVICE)
-hidden, summary = encoder(sensor_data)
+hidden, enc_summary2 = encoder(sensor_data)
 print(f"  Sensor input: {sensor_data.shape}")
 print(f"  Hidden states: {hidden.shape}")
-print(f"  Summary vectors: {summary.shape}")
+print(f"  Summary vectors: {enc_summary2.shape}")
 print(f"  Encoder params: {sum(p.numel() for p in encoder.parameters()):,}")
 
 # Test Decoder
 print("\n[2.4] Testing Mamba-2 Decoder...")
 decoder = Mamba2Decoder(d_model=64, d_state=32, n_layers=2, n_heads=2).to(DEVICE)
-dec_output = decoder(summary)
+dec_output = decoder(enc_summary2)
 print(f"  Decoder outputs:")
 for k, v in dec_output.items():
     if isinstance(v, torch.Tensor):
@@ -521,9 +521,9 @@ with torch.no_grad():
     print(f"  Onboard path outputs: {list(onboard_out.keys())}")
 
     # Encoder-decoder separate
-    hidden, summary = lbm.encode(test_sensor, chemistry_data=chem_data)
-    decoded = lbm.decode(summary, hidden)
-    print(f"  Encode: hidden={hidden.shape}, summary={summary.shape}")
+    hidden, enc_summary = lbm.encode(test_sensor, chemistry_data=chem_data)
+    decoded = lbm.decode(enc_summary, hidden)
+    print(f"  Encode: hidden={hidden.shape}, summary={enc_summary.shape}")
     print(f"  Decode outputs: {list(decoded.keys())}")
 
 # ============================================================

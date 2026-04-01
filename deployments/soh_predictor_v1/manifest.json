@@ -10,12 +10,12 @@
     "effective_size_mb": 0.0632944107055664
   },
   "performance": {
-    "mean_latency_ms": 3.706695999985641,
-    "min_latency_ms": 3.18890000016836,
-    "max_latency_ms": 7.094300000062503,
-    "p95_latency_ms": 5.829599999742641,
-    "p99_latency_ms": 7.094300000062503,
-    "throughput_per_sec": 269.78203769714963
+    "mean_latency_ms": 3.5097439999844937,
+    "min_latency_ms": 2.3237000004883157,
+    "max_latency_ms": 5.993300000227464,
+    "p95_latency_ms": 5.711499999961234,
+    "p99_latency_ms": 5.993300000227464,
+    "throughput_per_sec": 284.92106546928153
   },
   "quantized": true,
   "pruned": true,
@@ -24,6 +24,7 @@
     "version": "1.0"
   },
   "files": [
+    "manifest.json",
     "model_fp32.pt",
     "model_int8.pt",
     "model_pruned.pt"
