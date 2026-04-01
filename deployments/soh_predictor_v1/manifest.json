@@ -1,0 +1,31 @@
+{
+  "model_name": "soh_predictor_v1",
+  "original_stats": {
+    "total_parameters": 66369,
+    "trainable_parameters": 66369,
+    "fp32_size_mb": 0.2531776428222656,
+    "fp16_size_mb": 0.1265888214111328,
+    "int8_size_mb": 0.0632944107055664,
+    "sparsity": 0.0,
+    "effective_size_mb": 0.0632944107055664
+  },
+  "performance": {
+    "mean_latency_ms": 3.706695999985641,
+    "min_latency_ms": 3.18890000016836,
+    "max_latency_ms": 7.094300000062503,
+    "p95_latency_ms": 5.829599999742641,
+    "p99_latency_ms": 7.094300000062503,
+    "throughput_per_sec": 269.78203769714963
+  },
+  "quantized": true,
+  "pruned": true,
+  "metadata": {
+    "chemistry": "NMC111",
+    "version": "1.0"
+  },
+  "files": [
+    "model_fp32.pt",
+    "model_int8.pt",
+    "model_pruned.pt"
+  ]
+}
